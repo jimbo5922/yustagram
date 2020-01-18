@@ -1,5 +1,7 @@
 <footer class="footer">
   <small>
-    <%= link_to "Post", '#' %> <%# あとでアイコンに変更する %>
+    <% if logged_in? %>
+      <%= link_to "投稿", '#' %> <%# あとでアイコンに変更する %>
+    <% end %>
   </small>
 </footer>
