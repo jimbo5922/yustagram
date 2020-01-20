@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
+gem 'faker'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
 gem 'bcrypt'
 gem 'bootstrap-sass'
