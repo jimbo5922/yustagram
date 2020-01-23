@@ -4,6 +4,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.6.3'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 gem 'faker'
+gem 'carrierwave'
+gem 'mini_magick'
 gem 'will_paginate'
 gem 'bootstrap-will_paginate'
 gem 'rails-i18n'
@@ -33,6 +35,10 @@ group :test do
   gem 'minitest-reporters'
   gem 'guard'
   gem 'guard-minitest'
+end
+
+group :production do
+  gem 'fog'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
