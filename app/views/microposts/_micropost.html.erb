@@ -11,4 +11,5 @@
       <%= link_to "削除", micropost, method: :delete, data: { confirm: "削除してよろしいですか？" } %>
     <% end %>
   </span>
+  <%= render 'likes/like', micropost: micropost %>
 </li>

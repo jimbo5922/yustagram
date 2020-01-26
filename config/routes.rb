@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :testsessions, only: :create
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+  resources :likes, only: [:create, :destroy]
 end
