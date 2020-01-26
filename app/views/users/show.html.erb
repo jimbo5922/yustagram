@@ -6,7 +6,7 @@
         <%= gravatar_for @user %>
         <%= @user.name %>
       </h1>
-      <p><%= link_to "プロフィール編集", edit_user_path(current_user) unless current_user.id == 1 %></p>
+      <p><%= link_to "プロフィール編集", edit_user_path(current_user) %></p>
       <p><%= link_to "全ユーザー", users_path %></p>
     </section>
     <section class="stats">

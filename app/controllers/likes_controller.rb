@@ -5,7 +5,7 @@ class LikesController < ApplicationController
     @micropost = Micropost.find(params[:micropost_id])
     unless @micropost.fav?(current_user)
       @micropost.fav(current_user)
-      @micropost.reload
+      render root_url
       respond_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
@@ -15,9 +15,9 @@ class LikesController < ApplicationController
 
   def destroy
     @micropost = Like.find(params[:id]).micropost
-    if @micropost = fav?(current_user)
+    if @micropost.fav?(current_user)
       @micropost.unfav(current_user)
-      @micropost.reload
+      render root_url
       redirect_to do |format|
         format.html { redirect_to request.referrer || root_url }
         format.js
