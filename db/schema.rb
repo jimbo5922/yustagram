@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_25_090529) do
+ActiveRecord::Schema.define(version: 2020_01_27_214635) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.integer "micropost_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["micropost_id"], name: "index_comments_on_micropost_id"
+  end
 
   create_table "favorites", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -67,6 +75,7 @@ ActiveRecord::Schema.define(version: 2020_01_25_090529) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "comments", "microposts"
   add_foreign_key "favorites", "posts"
   add_foreign_key "favorites", "users"
   add_foreign_key "microposts", "users"
