@@ -20,16 +20,6 @@ ActiveRecord::Schema.define(version: 2020_01_27_214635) do
     t.index ["micropost_id"], name: "index_comments_on_micropost_id"
   end
 
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id", null: false
-    t.integer "post_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["post_id"], name: "index_favorites_on_post_id"
-    t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
-    t.index ["user_id"], name: "index_favorites_on_user_id"
-  end
-
   create_table "likes", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "micropost_id", null: false
@@ -76,7 +66,5 @@ ActiveRecord::Schema.define(version: 2020_01_27_214635) do
   end
 
   add_foreign_key "comments", "microposts"
-  add_foreign_key "favorites", "posts"
-  add_foreign_key "favorites", "users"
   add_foreign_key "microposts", "users"
 end
